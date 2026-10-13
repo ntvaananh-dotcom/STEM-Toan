@@ -31,7 +31,7 @@ function showCheckout(products){
  const q=comboQuote(products.filter(p=>!unlockedProducts.has(p.id)),demoState.coupon);if(!q.products.length)return;
  let d=document.querySelector('#checkout-dialog');if(!d){d=node('dialog');d.id='checkout-dialog';document.body.append(d)}d.replaceChildren();
  const heading=node('div',undefined,'dialog-head'),close=node('button','✕');close.setAttribute('aria-label','Đóng thanh toán');close.onclick=()=>d.close();heading.append(node('h2','Kiểm tra đơn hàng'),close);d.append(heading);
- for(const p of q.products)d.append(node('p',p.title+' — '+money(p.price)+' / bộ (2 PDF)'));
+ for(const p of q.products)d.append(node('p',p.title+' — '+money(p.price)+' / bộ'));
  d.append(node('p','Tạm tính: '+money(q.subtotal)),node('p',`${q.useVideo?'Ưu đãi video':'Ưu đãi combo'} ${q.rate*100}%: −${money(q.saving)}`),node('h3','Tổng thanh toán: '+money(q.total)));
  const confirm=node('button','Xác nhận thanh toán · '+money(q.total),'button');confirm.onclick=()=>{d.close();payProducts(q.products)};d.append(confirm);d.showModal();
 }
