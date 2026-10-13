@@ -1,5 +1,5 @@
 window.STEM_CONTENT = {
-  brand: 'STEM–Toán',
+  brand: 'STEMath Pro',
   formUrl: '',
   contact: '',
   products: [
