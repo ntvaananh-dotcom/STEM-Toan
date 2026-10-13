@@ -18,7 +18,7 @@ function openProduct(product) {
   const heading=node('div',undefined,'dialog-head'),close=node('button','✕');
   close.setAttribute('aria-label','Đóng chi tiết');close.onclick=()=>detail.close();
   heading.append(node('h2',product.title),close);
-  detail.append(heading,node('p',new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND'}).format(product.price)+' / bộ · Gồm cả hai tài liệu'));
+  detail.append(heading,node('p',new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND'}).format(product.price)+' / bộ'));
   const unlocked=unlockedProducts.has(product.id);
   for(const [title,url] of [['Kế hoạch bài dạy',product.lessonPdf],['Bản thiết kế STEM',product.designPdf]]){
     const section=node('section');section.append(node('h3',title));
